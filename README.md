@@ -16,5 +16,7 @@ You reached a repo for MatuusOS SDDM theme! MatuusOS SDDM theme is for MatuusOS,
   > makedeb -si
   
   * NOTE: You must edit a file called sddm.conf by typing: 
+
+  > sudo nano /etc/sddm.conf
   
  
