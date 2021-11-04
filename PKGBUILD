@@ -18,7 +18,7 @@ sha256sums=('SKIP')
   install -Dm644 "Main.qml" "$pkgdir/usr/share/sddm/themes/sddm-theme-matuusos/Main.qml"
   install -Dm644 "theme.conf" "$pkgdir/usr/share/sddm/themes/sddm-theme-matuusos/theme.conf"
   install -Dm644 "metadata.desktop" "$pkgdir/usr/share/sddm/themes/sddm-theme-matuusos/metadata.desktop"
-  find  *.jpg -exec install -Dm644 {} "$pkgdir/usr/share/sddm/themes/sddm-theme-matuusos/{}" \;
+  install -Dm644 *.jpg "$pkgdir/usr/share/sddm/themes/sddm-theme-matuusos/{}" \;
   }
 
 pkgver() {
