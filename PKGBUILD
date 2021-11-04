@@ -22,7 +22,7 @@ sha256sums=('SKIP')
     cp "Main.qml" "$pkgdir/usr/share/sddm/themes/sddm-theme-matuusos/"
     cp "theme.conf" "$pkgdir/usr/share/sddm/themes/sddm-theme-matuusos/"
     cp "metadata.desktop" "$pkgdir/usr/share/sddm/themes/sddm-theme-matuusos/"
-    cp *.jpg "$pkgdir/usr/share/sddm/themes/sddm-theme-matuusos/{}" \;
+    cp *.jpg "$pkgdir/usr/share/sddm/themes/sddm-theme-matuusos/" \;
   }
 
 pkgver() {
