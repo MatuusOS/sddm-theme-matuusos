@@ -1,25 +1,3 @@
-# Maintainer: Sainnhe Park <sainnhe@gmail.com>
-pkgname=sddm-theme-matuusos
-pkgver=r53.2b72ef6
-pkgrel=1
-pkgdesc="Default SDDM theme for MatuusOS"
-arch=('any')
-url='https://matuusos.github.io'
-license=('GPL3')
-depends=('sddm>=0.18')
-makedepends=('git')
-provides=("sddm-sugar-candy")
-conflicts=("sddm-sugar-candy")
-backup=('usr/share/sddm/themes/sugar-candy/theme.conf')
-source=('sugar-candy::git+https://github.com/MatusModder/sddm-theme-matuusos.git')
-sha256sums=('SKIP')
-
-pkgver() {
-  cd "$srcdir/sugar-candy"
-    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-}
-
-package() {
   cd "$srcdir/sugar-candy"
   install -Dm644 "Main.qml" "$pkgdir/usr/share/sddm/themes/sugar-candy/Main.qml"
   install -Dm644 "theme.conf" "$pkgdir/usr/share/sddm/themes/sugar-candy/theme.conf"
