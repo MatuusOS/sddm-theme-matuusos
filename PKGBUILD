@@ -1,11 +1,3 @@
-  cd "$srcdir/sugar-candy"
-  install -Dm644 "Main.qml" "$pkgdir/usr/share/sddm/themes/sugar-candy/Main.qml"
-  install -Dm644 "theme.conf" "$pkgdir/usr/share/sddm/themes/sugar-candy/theme.conf"
-  install -Dm644 "metadata.desktop" "$pkgdir/usr/share/sddm/themes/sugar-candy/metadata.desktop"
-  find ./Assets -type f -exec install -Dm644 {} "$pkgdir/usr/share/sddm/themes/sugar-candy/{}" \;
-  find ./Backgrounds -type f -exec install -Dm644 {} "$pkgdir/usr/share/sddm/themes/sugar-candy/{}" \;
-  find ./Components -type f -exec install -Dm644 {} "$pkgdir/usr/share/sddm/themes/sugar-candy/{}" \;
-  install -Dm 644 "COPYING" "${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
   # Maintainer: Mathew Li
 pkgname=sddm-theme-matuusos
 pkgver=r53.2b72ef6
@@ -13,32 +5,23 @@ pkgrel=1
 pkgdesc="login theme for the SDDM display manager."
 arch=('any')
 url='https://MatuusOS.github.io'
-license=('GPL3')
-depends=('sddm>=0.18' 'qt5-graphicaleffects' 'qt5-quickcontrols2' 'qt5-svg')
+license=('MIT')
+depends=('sddm>=0.18')
 makedepends=('git')
-provides=("sddm-sugar-candy")
-conflicts=("sddm-sugar-candy")
-backup=('usr/share/sddm/themes/sugar-candy/theme.conf')
-source=('sugar-candy::git+https://framagit.org/MarianArlt/sddm-sugar-candy.git')
+provides=("sddm-theme-matuusos")
+conflicts=("sddm-theme-matuusos")
+source=('https://github.com/MatusModder/sddm-theme-matuusos.git')
 sha256sums=('SKIP')
+  
+  install() { 
+  cd "$srcdir/sddm-theme-matuusos"
+  install -Dm644 "Main.qml" "$pkgdir/usr/share/sddm/themes/sddm-theme-matuusos/Main.qml"
+  install -Dm644 "theme.conf" "$pkgdir/usr/share/sddm/themes/sddm-theme-matuusos/theme.conf"
+  install -Dm644 "metadata.desktop" "$pkgdir/usr/share/sddm/themes/sddm-theme-matuusos/metadata.desktop"
+  find  *.jpg -exec install -Dm644 {} "$pkgdir/usr/share/sddm/themes/sddm-theme-matuusos/{}" \;
+  }
 
 pkgver() {
   cd "$srcdir/sugar-candy"
     printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
-
-package() {
-  cd "$srcdir/sugar-candy"
-  install -Dm644 "Main.qml" "$pkgdir/usr/share/sddm/themes/sugar-candy/Main.qml"
-  install -Dm644 "theme.conf" "$pkgdir/usr/share/sddm/themes/sugar-candy/theme.conf"
-  install -Dm644 "metadata.desktop" "$pkgdir/usr/share/sddm/themes/sugar-candy/metadata.desktop"
-  find ./Assets -type f -exec install -Dm644 {} "$pkgdir/usr/share/sddm/themes/sugar-candy/{}" \;
-  find ./Backgrounds -type f -exec install -Dm644 {} "$pkgdir/usr/share/sddm/themes/sugar-candy/{}" \;
-  find ./Components -type f -exec install -Dm644 {} "$pkgdir/usr/share/sddm/themes/sugar-candy/{}" \;
-  install -Dm 644 "COPYING" "${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
-  install -Dm 644 "$pkgdir/usr/share/sddm/themes/sugar-candy/{}"  
-}
-
-
-# vim:set ts=2 sw=2 et:
-
